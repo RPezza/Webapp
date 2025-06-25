@@ -1,31 +1,23 @@
 
-from .models import Asset
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from .forms import BookingForm
-from .models import Booking
 from datetime import date, timedelta
-from django.conf import settings
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
 
-# Create your views here.
-from django.shortcuts import render
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
+from django.shortcuts import get_object_or_404, redirect, render
+from django.core.mail import send_mail
+
+from .forms import BookingForm, ContactForm
+from .models import Asset, Booking, UserMessage
 
 def admin(request):
     return render(request, 'inventory/admin.html')
 
-def home(request):
-    return render(request, 'inventory/home.html')
-
-from django.contrib.auth.views import LoginView
-
 class CustomLoginView(LoginView):
     template_name = 'inventory/login.html'
-
-from django.contrib.auth import authenticate, login
-
-
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -65,21 +57,6 @@ def asset_list(request):
 def home(request):
     assets = Asset.objects.all()
     return render(request, 'inventory/home.html', {'assets': assets})
-from django.core.mail import send_mail
-from django.shortcuts import render, redirect
-from .forms import ContactForm  # Ensure this import matches your project structure
-
-from django.core.mail import send_mail
-from django.shortcuts import render
-from .forms import ContactForm
-
-from django.shortcuts import render
-from django.core.mail import send_mail
-from .forms import ContactForm
-
-from .models import UserMessage
-
-from .models import UserMessage  # or ContactMessage, depending on your model
 
 def contact(request):
     if request.method == 'POST':
@@ -149,17 +126,6 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'inventory/register.html', {'form': form})
 
-from django.shortcuts import get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Booking
-from .forms import BookingForm
-
-
-from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib import messages
-from .models import Booking
-from .forms import BookingForm
-
 def edit_booking(request, pk):
     booking = get_object_or_404(Booking, id=pk)
 
@@ -180,16 +146,8 @@ def edit_booking(request, pk):
 
 
 
-from django.contrib.auth import views as auth_views
-from django.urls import reverse_lazy
-from django.contrib import messages
 
-from django.contrib.auth import logout
-from django.contrib import messages
-from django.shortcuts import redirect
-
-
-def logout(request):
+def logout_view(request):
     logout(request)
     messages.success(request, "You have been logged out successfully.")
-    return redirect('inventory/login')  
+    return redirect('inventory/login')

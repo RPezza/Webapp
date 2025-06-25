@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Booking, Asset
-from django.contrib import admin
-from .models import Booking
+from .models import Asset, Booking
 from .forms import BookingForm
 
 admin.site.register(Asset)
@@ -15,7 +13,6 @@ class BookingAdmin(admin.ModelAdmin):
 
 admin.site.register(Booking, BookingAdmin)
 
-from django.contrib import admin
 from .models import UserMessage
 
 @admin.register(UserMessage)

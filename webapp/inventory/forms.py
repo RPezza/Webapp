@@ -1,7 +1,7 @@
 from django import forms
 from django.utils import timezone
 from django.core.exceptions import ValidationError
-from .models import Booking, Asset
+from .models import Asset, Booking
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -50,9 +50,3 @@ class ContactForm(forms.Form):
     email = forms.EmailField()
     subject = forms.CharField(max_length=150)
     message = forms.CharField(widget=forms.Textarea)
-
-class BookingForm(forms.ModelForm):
-    class Meta:
-        model = Booking
-        fields = ('asset', 'start_date', 'end_date') 
-        
