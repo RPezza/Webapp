@@ -4,96 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Booking | Asset Tracker</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            color: white;
-            padding: 17px;
-            display: flex;
-            justify-content: space-between; /* Spread items to take up more space */
-            align-items: center; /* Center items vertically */
-        }
-        header img {
-            height: 30px;
-            position: relative; /* Change this to absolute, fixed, or sticky as needed */
-            right: -1270px; /* Adjust the position */
-        }
-
-        nav {
-            display: inline-block;
-            justify-content: space-between; /* Spread items to take up more space */
-            align-items: center; /* Center items vertically */
-            width: 100%; /* Make nav take full width of the screen */
-            position: relative;
-            right: 625px;
-        }
-
-        nav a {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
-            display: inline-block;
-            font-weight: normal;
-            text-align: center;
-            flex-grow: 1;
-            margin: 0 5px;
-            padding: 10px;
-            max-width: 100px;
-            text-decoration: none;
-            color: inherit;
-            background-color: #5a7681;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: #3e5a63; /* Darker shade for hover */
-            color: #ffffff; /* Optional: change text color on hover */
-            text-decoration: underline; /* Optional: add underline on hover */
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        h1 {
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 5px;   /* reduce space above */
-            margin-bottom: 5px; /* reduce space below */
-        }
-
-        h2 {
-            font-size: 15px;
-            font-weight: normal;
-            margin-top: 0;       /* reduce space above */
-            margin-bottom: 20px; /* optional: adjust space before form */
-        }
-
-        main {
-            text-align: center;
-            font-size: large;
-        }
-
-        footer {
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-<body>
+<body class="edit-booking-page">
     <header>
         <img src="{% static 'white.png' %}">
         <nav>
@@ -102,7 +15,7 @@
             <a href="{% url 'booking_list' %}">Booking List</a>
             <a href="{% url 'contact' %}">Contact</a>
             <a href="{% url 'book_asset' %}">Book Asset</a>
-            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Logout</button>
               </form>
