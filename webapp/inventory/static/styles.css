@@ -40,6 +40,9 @@ nav {
     align-items: center;
 }
 
+nav form { margin: 0; }
+
+
 nav a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: inline-block;

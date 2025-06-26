@@ -16,6 +16,13 @@
             <a href="{% url 'contact' %}">Contact</a>
             <a href="{% url 'book_asset' %}">Book Asset</a>
             <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'book_asset' %}">Book Asset</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+              </form>
               
         
         </nav>
