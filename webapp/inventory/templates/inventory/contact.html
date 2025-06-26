@@ -23,25 +23,22 @@
         
         </nav>
     </header>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <main>
         <h1>Contact the Admins</h1>
         <h2>For any issues or queries please leave a message here and an administrator will respond to assist you.</h2>
-    
-        {% if success %}
-            <p class="success-message">Your message has been sent successfully!</p>
-        {% endif %}
-        {% if success %}
-            <p class="success-message">Your message has been sent successfully!</p>
-        {% endif %}
     
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Send Message</button>
         </form>
-        {% if success %}
-            <p>Thank you for contacting us! We'll get back to you soon.</p>
-        {% endif %}
     </main>
     
     <footer>
