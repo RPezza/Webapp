@@ -1,9 +1,23 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('home/', views.home, name='home'),
+    path('assets/', views.asset_list, name='asset_list'),
+    path('book/', views.book_asset, name='book_asset'),
+    path('booking_list/', views.booking_list, name='booking_list'),
+    path('contact/', views.contact, name='contact'),
+    path('register/', views.register, name='register'),
+    path('edit_booking/<str:pk>/', views.edit_booking, name='edit_booking'),
+]
+
 
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 
-=======
 
 from django.urls import path
 from . import views
@@ -20,14 +34,14 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('logout/', views.logout, name='logout'),
 ]
-=======
+
     path('edit_booking/<str:pk>/', views.edit_booking, name='edit_booking'),
     path('logout/', views.logout_view, name='logout'),
 ]
 
 
 
-=======
+
 from django.urls import path
 from . import views
 
