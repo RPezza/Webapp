@@ -1,14 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Asset List</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
-        <img src="{% static 'white.png' %}">
+        <img src="{% static 'white.png' %}" alt="Logo">
         <nav>
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'asset_list' %}">Assets</a>
@@ -18,49 +18,37 @@
             <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Logout</button>
-              </form>
-              
-        
+            </form>
         </nav>
     </header>
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li class="{{ message.tags }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    <main>
-    <h1>Asset Inventory</h1>
-    <h2>This is a list of all available equipment as well as when they are next available.</h2>
-    
-    <div class="grid">
-        {% for asset in assets %}
-        <div class="card">
-            <img class="asset-img" src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg"
-                 alt="{{ asset.name }}">
-            <h2>{{ asset.name }}</h2>
-            <h3>{{ asset.description }}</h3>
-            <p><strong>Next Available:</strong> {{ asset.next_available|date:"j M Y" }}</p>
-            <span class="badge {% if asset.available %}available{% else %}unavailable{% endif %}">
-                {{ asset.available|yesno:"Available,Unavailable" }}
-            </span>
-        </div>
-        {% endfor %}
-    </div>
-    
-    
-    </Main>
-    <footer>
-        &copy; {{ now|date:"Y" }} Asset Booking App
-    </footer>
 
-    <script>
-        window.addEventListener('beforeunload', (event) => {
-            event.preventDefault();
-            event.returnValue = '';
-        });
-    </script>
-       
+    <main>
+        <h1>Asset Inventory</h1>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <div class="grid">
+            {% for asset in assets %}
+            <div class="card">
+                <h2>{{ asset.name }}</h2>
+                <p>{{ asset.description }}</p>
+                <p>Next Available: {{ asset.next_available|date:"j M Y" }}</p>
+                <span class="badge {% if asset.available %}available{% else %}unavailable{% endif %}">
+                    {{ asset.available|yesno:"Available,Unavailable" }}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Reach. All rights reserved
+    </footer>
 </body>
 </html>

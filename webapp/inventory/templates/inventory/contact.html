@@ -2,9 +2,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Contact Us</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .messages {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+        .messages li.success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,31 +32,32 @@
             <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Logout</button>
-              </form>
-              
-        
+            </form>
         </nav>
     </header>
-    {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-          <li class="{{ message.tags }}">{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+
     <main>
         <h1>Contact the Admins</h1>
-        <h2>For any issues or queries please leave a message here and an administrator will respond to assist you.</h2>
-    
+        <h2>For any issues or queries, please leave a message and an administrator will respond to assist you.</h2>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Send Message</button>
         </form>
     </main>
-    
+
     <footer>
-        &copy; 2025 Your Company. All rights reserved.
+        &copy; 2025 Reach. All rights reserved.
     </footer>
 
     <script>
@@ -50,7 +65,6 @@
             event.preventDefault();
             event.returnValue = '';
         });
-      </script>
-    
+    </script>
 </body>
 </html>
