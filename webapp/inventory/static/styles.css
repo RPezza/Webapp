@@ -40,6 +40,7 @@ nav {
     align-items: center;
 }
 
+
 nav form { margin: 0; }
 
 
@@ -307,3 +308,8 @@ th { background-color: #2b414a; }
 /* Utility classes */
 .success-message { color: lightgreen; font-weight: bold; }
 .highlight-link { color: lightblue; }
+.muted {
+    color: #cccccc;
+    font-style: italic;
+}
+

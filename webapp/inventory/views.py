@@ -101,6 +101,17 @@ def book_asset(request):
 
 @login_required
 def booking_list(request):
+    bookings = Booking.objects.all()
+
+    show_user = request.user.is_staff
+
+    return render(
+        request,
+        "inventory/booking_list.html",
+        {
+            "bookings": bookings,
+            "show_user": show_user,
+        },
     if request.user.is_staff:
         bookings = Booking.objects.all()
     else:
@@ -132,6 +143,7 @@ def edit_booking(request, pk):
     booking = get_object_or_404(Booking, id=pk)
 
     if not request.user.is_staff and booking.user != request.user:
+
 
     if booking.user != request.user:
         messages.error(request, "You are not allowed to edit this booking.")
@@ -477,6 +489,7 @@ def edit_booking(request, pk):
     else:
         form = BookingForm(instance=booking)
     return render(request, "inventory/edit_booking.html", {"form": form})
+
 
 
 
