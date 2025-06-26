@@ -56,21 +56,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webapp.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'webapp.wsgi.application'
 
 
@@ -152,3 +137,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'rowanperry05@gmail.com'
 EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Redirect unauthenticated users to the custom login page
+LOGIN_URL = '/login/'
