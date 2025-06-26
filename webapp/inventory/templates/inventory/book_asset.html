@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Equipment</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        form {
+            background-color: #395059;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form p {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #8ba7b1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6e8f99;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 1px;   /* reduce space above */
+            margin-bottom: 1px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{% static 'white.png' %}">
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'asset_list' %}">Assets</a>
+            <a href="{% url 'booking_list' %}">Booking List</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'book_asset' %}">Book Asset</a>
+            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+              </form>
+              
+        
+        </nav>
+    </header>
+
+    <main>
+        <h1>Book Available Equipment</h1>
+        <h2>Here you can book equipment for use. You will be unable to book equipment that has already been booked for selected dates.</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Book</button>
+        </form>
+    </main>
+
+    <footer>
+        &copy; {{ now|date:"Y" }} Asset Booking App
+    </footer>
+
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+        });
+    </script>
+    
+</body>
+</html>
