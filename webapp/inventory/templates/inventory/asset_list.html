@@ -4,6 +4,7 @@
 <head>
     <title>Asset List</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -15,6 +16,15 @@
             <a href="{% url 'contact' %}">Contact</a>
             <a href="{% url 'book_asset' %}">Book Asset</a>
             <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'book_asset' %}">Book Asset</a>
+            <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'book_asset' %}">Book Asset</a>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Logout</button>
+              </form>
               
         
         </nav>
@@ -26,6 +36,8 @@
     <div class="grid">
         {% for asset in assets %}
         <div class="card">
+            <img class="asset-img" src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg"
+                 alt="{{ asset.name }}">
             <img class="asset-img" src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg"
                  alt="{{ asset.name }}">
             <h2>{{ asset.name }}</h2>

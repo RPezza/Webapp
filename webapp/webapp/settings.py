@@ -55,8 +55,16 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webapp.urls'
+ROOT_URLCONF = 'webapp.urls'
+
+ROOT_URLCONF = 'webapp.urls'
+ROOT_URLCONF = 'webapp.urls'
 
 WSGI_APPLICATION = 'webapp.wsgi.application'
+
+ROOT_URLCONF = 'webapp.urls'
+WSGI_APPLICATION = "webapp.wsgi.application"
+
 
 
 # Database
@@ -140,3 +148,21 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Redirect unauthenticated users to the custom login page
 LOGIN_URL = '/login/'
+
+EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Redirect unauthenticated users to the custom login page
+LOGIN_URL = '/login/'
+EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Redirect unauthenticated users to the custom login page
+LOGIN_URL = '/login/'
+
+EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Redirect unauthenticated users to the custom login page
+LOGIN_URL = '/login/'
+
