@@ -1,7 +1,5 @@
 from django import forms
 from django.utils import timezone
-from .models import Booking, Asset
-
 
 from .models import Asset, Booking, UserMessage
 
@@ -13,12 +11,6 @@ class BookingForm(forms.ModelForm):
         widgets = {
             "start_date": forms.DateInput(attrs={"type": "date"}),
             "end_date": forms.DateInput(attrs={"type": "date"}),
-
-
-        fields = ['asset', 'start_date', 'end_date', 'purpose']
-        widgets = {
-            'start_date': forms.DateInput(attrs={'type': 'date'}),
-            'end_date': forms.DateInput(attrs={'type': 'date'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -30,14 +22,6 @@ class BookingForm(forms.ModelForm):
         asset = cleaned_data.get("asset")
         start = cleaned_data.get("start_date")
         end = cleaned_data.get("end_date")
-
-        self.fields['asset'].queryset = Asset.objects.all()
-
-    def clean(self):
-        cleaned_data = super().clean()
-        asset = cleaned_data.get('asset')
-        start = cleaned_data.get('start_date')
-        end = cleaned_data.get('end_date')
 
         if start and end and start > end:
             raise forms.ValidationError("End date must be after start date.")
@@ -52,38 +36,21 @@ class BookingForm(forms.ModelForm):
             )
             if self.instance.pk:
                 overlapping = overlapping.exclude(pk=self.instance.pk)
-
-            if overlapping.exists():
-                raise forms.ValidationError(
-                    f"{asset.name} is already booked between {overlapping.first().start_date} and {overlapping.first().end_date}."
-
-
-                end_date__gte=start
-            )
-            if self.instance.pk:
-                overlapping = overlapping.exclude(pk=self.instance.pk)
             if overlapping.exists():
                 first = overlapping.first()
                 raise forms.ValidationError(
                     f"{asset.name} is already booked between {first.start_date} and {first.end_date}."
                 )
-
         return cleaned_data
 
-
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    subject = forms.CharField(max_length=150)
-    message = forms.CharField(widget=forms.Textarea)
 
 class ContactForm(forms.ModelForm):
     class Meta:
         model = UserMessage
-        fields = ['name', 'email', 'subject', 'message']
+        fields = ["name", "email", "subject", "message"]
+
 
 class AssetForm(forms.ModelForm):
     class Meta:
         model = Asset
-        fields = ['name', 'description', 'category', 'available']
-
+        fields = ["name", "description", "category", "available"]
