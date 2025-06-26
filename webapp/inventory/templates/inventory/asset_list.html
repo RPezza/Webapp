@@ -36,6 +36,7 @@
         <div class="grid">
             {% for asset in assets %}
             <div class="card">
+                <img class="asset-img" src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg" alt="{{ asset.name }}">
                 <h2>{{ asset.name }}</h2>
                 <p>{{ asset.description }}</p>
                 <p>Next Available: {{ asset.next_available|date:"j M Y" }}</p>
