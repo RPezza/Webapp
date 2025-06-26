@@ -12,19 +12,29 @@ from .forms import AssetForm, BookingForm, ContactForm
 from .models import Asset, Booking, UserMessage
 
 
+
 def _annotate_next_available(assets):
     for asset in assets:
-        latest_booking = (
-            Booking.objects.filter(asset=asset, end_date__gte=date.today())
-            .order_by("end_date")
-            .last()
-        )
-        asset.next_available = (
-            latest_booking.end_date + timedelta(days=1)
-            if latest_booking
-            else date.today()
-        )
+        # Check if today is booked
+        is_today_booked = Booking.objects.filter(
+            asset=asset,
+            start_date__lte=date.today(),
+            end_date__gte=date.today()
+        ).exists()
+
+        if is_today_booked:
+            latest_booking = (
+                Booking.objects.filter(asset=asset, end_date__gte=date.today())
+                .order_by("end_date")
+                .last()
+            )
+            asset.next_available = latest_booking.end_date + timedelta(days=1)
+            asset.available = False  # mark unavailable if today is booked
+        else:
+            asset.next_available = date.today()
+            asset.available = True  # mark available if today is free
     return assets
+
 
 
 def login_view(request):
@@ -86,16 +96,17 @@ def book_asset(request):
 
 @login_required
 def booking_list(request):
-    if request.user.is_staff:
-        bookings = Booking.objects.all()
-    else:
-        bookings = Booking.objects.filter(user=request.user)
-    show_user = request.user.is_staff
+    bookings = Booking.objects.all()
     return render(
         request,
         "inventory/booking_list.html",
-        {"bookings": bookings, "show_user": show_user},
+        {
+            "bookings": bookings,
+            "show_user": True,
+            "request_user": request.user,  # allows template to check user match
+        },
     )
+
 
 
 @login_required

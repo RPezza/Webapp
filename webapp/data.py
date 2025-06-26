@@ -37,7 +37,7 @@ asset_data = [
     {"name": "Meta Quest 3", "description": "VR headset", "category": "Visual"},
     {"name": "Drone", "description": "Aerial drone", "category": "Media Capture"},
     {"name": "Sony Camera", "description": "Professional camera", "category": "Media Capture"},
-    {"name": "DJI Mavic", "description": "Small drone", "category": "Media Capture"},
+    {"name": "IPad", "description": "Tablet", "category": "Devices"},
     {"name": "Canon DSLR", "description": "DSLR camera", "category": "Media Capture"},
 ]
 
