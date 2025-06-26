@@ -3,181 +3,8 @@
 <html>
 <head>
     <title>Asset List</title>
-    <style>
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
-            color: #ffffff;
-            text-align: center;
-        }
-
-        main {
-            flex: 1;
-            padding-bottom: 20px;
-        }
-
-
-        footer {
-            color: white;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            background-color: transparent;
-        }
-
-
-
-
-        header {
-            color: white;
-            padding: 17px;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        header img {
-            height: 30px;
-            position: relative; 
-            right: -1270px; 
-        }
-
-        nav {
-            display: inline-block;
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%; 
-            position: relative;
-            right: 590px;
-        }
-
-        nav a {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            display: inline-block;
-            font-weight: normal;
-            text-align: center;
-            flex-grow: 1;
-            margin: 0 5px;
-            padding: 10px;
-            max-width: 100px;
-            text-decoration: none;
-            color: inherit;
-            background-color: #5a7681;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: #3e5a63; 
-            color: #ffffff; 
-            text-decoration: underline; 
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        h1 {
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 5px;   
-            margin-bottom: 5px; 
-        }
-
-        h2 {
-            font-size: 15px;
-            font-weight: normal;
-            margin-top: 0;       
-            margin-bottom: 20px;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 40px;
-        }
-
-        .card {
-            background-color: #223b4a;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h2 {
-            margin-top: 0;
-            font-size: 1.2rem;
-            color: #ffffff;
-        }
-
-        .card p {
-            margin: 5px 0;
-            color: #d0d0d0;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            color: white;
-        }
-
-        .available {
-            background-color: #28a745;
-        }
-
-        .unavailable {
-            background-color: #dc3545;
-        }
-
-        h1 {
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 1px;   
-            margin-bottom: 1px; 
-        }
-
-        h2 {
-            font-size: 15px;
-            font-weight: normal;
-            margin-top: 0;       
-            margin-bottom: 20px; 
-        }
-        h3 {
-            font-size: 14px;
-            font-weight: lighter;
-            margin-top: 0;       
-            margin-bottom: 20px; 
-        }
-        .logout-button {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: inline-block;
-            font-weight: normal;
-            text-align: center;
-            margin: 0 5px;
-            padding: 10px;
-            max-width: 100px;
-            text-decoration: none;
-            color: inherit;
-            background-color: #be02f8;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            }
-
-
-        .logout-button:hover {
-        background-color: #8203a8;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -188,7 +15,7 @@
             <a href="{% url 'booking_list' %}">Booking List</a>
             <a href="{% url 'contact' %}">Contact</a>
             <a href="{% url 'book_asset' %}">Book Asset</a>
-            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+            <form method="post" action="{% url 'logout' %}" class="inline-form">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Logout</button>
               </form>
@@ -204,8 +31,7 @@
         {% for asset in assets %}
         <div class="card">
             <img src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg"
-                 alt="{{ asset.name }}"
-                 style="width: 160px; max-height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                 alt="{{ asset.name }}" class="asset-img">
             <h2>{{ asset.name }}</h2>
             <h3>{{ asset.description }}</h3>
             <p><strong>Next Available:</strong> {{ asset.next_available|date:"j M Y" }}</p>
