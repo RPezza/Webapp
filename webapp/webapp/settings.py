@@ -7,7 +7,7 @@ SECRET_KEY = "django-insecure-531r5f@9#h51*^$3slvx1(m29ht=6yo2dwz6%on^c$)$n&fgs_
 DEBUG = True
 ALLOWED_HOSTS = []
 
-ADMINS = [("Rowan", "rowan.perry@atkinsrealis.com")]
+ADMINS = [("Rowan", "rowanperry05@gmail.com")]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
