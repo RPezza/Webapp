@@ -1,11 +1,16 @@
 from django import forms
 from django.utils import timezone
+from .models import Booking, Asset
 from .models import Asset, Booking, UserMessage
 
 
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
+        fields = ["asset", "start_date", "end_date", "purpose"]
+        widgets = {
+            "start_date": forms.DateInput(attrs={"type": "date"}),
+            "end_date": forms.DateInput(attrs={"type": "date"}),
         fields = ['asset', 'start_date', 'end_date', 'purpose']
         widgets = {
             'start_date': forms.DateInput(attrs={'type': 'date'}),
@@ -14,6 +19,14 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["asset"].queryset = Asset.objects.all()
+
+    def clean(self):
+        cleaned_data = super().clean()
+        asset = cleaned_data.get("asset")
+        start = cleaned_data.get("start_date")
+        end = cleaned_data.get("end_date")
+
         self.fields['asset'].queryset = Asset.objects.all()
 
     def clean(self):
@@ -31,6 +44,14 @@ class BookingForm(forms.ModelForm):
             overlapping = Booking.objects.filter(
                 asset=asset,
                 start_date__lte=end,
+                end_date__gte=start,
+            )
+            if self.instance.pk:
+                overlapping = overlapping.exclude(pk=self.instance.pk)
+
+            if overlapping.exists():
+                raise forms.ValidationError(
+                    f"{asset.name} is already booked between {overlapping.first().start_date} and {overlapping.first().end_date}."
                 end_date__gte=start
             )
             if self.instance.pk:
@@ -44,6 +65,11 @@ class BookingForm(forms.ModelForm):
         return cleaned_data
 
 
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    subject = forms.CharField(max_length=150)
+    message = forms.CharField(widget=forms.Textarea)
 class ContactForm(forms.ModelForm):
     class Meta:
         model = UserMessage

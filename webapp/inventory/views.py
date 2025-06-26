@@ -136,6 +136,7 @@ def edit_booking(request, pk):
         form = BookingForm(instance=booking)
     return render(request, "inventory/edit_booking.html", {"form": form})
 
+
 from .models import Asset
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect

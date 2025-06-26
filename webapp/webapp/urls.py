@@ -7,6 +7,7 @@ urlpatterns = [
     path('', lambda request: redirect('login')),
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('inventory.urls')),
