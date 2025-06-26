@@ -13,6 +13,7 @@ body {
     flex-direction: column;
 }
 
+<<<<<<< c844qt-codex/unify-and-clean-up-styling-code
 /* Centered layout for login page */
 .login-page {
     align-items: center;
@@ -20,6 +21,8 @@ body {
     height: 100vh;
 }
 
+=======
+>>>>>>> main
 header {
     color: white;
     padding: 17px;
