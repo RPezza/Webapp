@@ -25,3 +25,14 @@ class BookingTests(TestCase):
         self.assertFalse(self.asset.available)
         self.assertEqual(Booking.objects.count(), 1)
 
+
+class AssetListImageTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user("user", password="pass")
+        self.asset = Asset.objects.create(name="Camera", description="Test", category="Media")
+
+    def test_asset_list_displays_image(self):
+        self.client.login(username="user", password="pass")
+        response = self.client.get(reverse("asset_list"))
+        self.assertContains(response, "/static/equipment/camera.jpg")
+
