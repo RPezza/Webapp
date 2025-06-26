@@ -23,6 +23,13 @@
         
         </nav>
     </header>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <main>
     <h1>Asset Inventory</h1>
     <h2>This is a list of all available equipment as well as when they are next available.</h2>
