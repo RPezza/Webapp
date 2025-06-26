@@ -4,7 +4,6 @@
 <head>
     <title>Asset List</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -26,7 +25,14 @@
     <main>
     <h1>Asset Inventory</h1>
     <h2>This is a list of all available equipment as well as when they are next available.</h2>
-    
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
     <div class="grid">
         {% for asset in assets %}
         <div class="card">
@@ -43,17 +49,12 @@
     </div>
     
     
-    </Main>
+    </main>
     <footer>
-        &copy; {{ now|date:"Y" }} Asset Booking App
+        &copy; {% now "Y" %} Asset Booking App
     </footer>
 
-    <script>
-        window.addEventListener('beforeunload', (event) => {
-            event.preventDefault();
-            event.returnValue = '';
-        });
-    </script>
+
        
 </body>
 </html>
