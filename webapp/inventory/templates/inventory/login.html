@@ -5,95 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .login-box {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .login-box h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 5px;
-    }
-
-    .login-box h3 {
-      text-align: center;
-      color: #333;
-      font-size:medium;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-weight: 300;
-      margin-top: 5px; /* Adjust this value to reduce spacing */
-    }
-    
-    .login-box img {
-    
-    width: 250px; /* Adjust the width as needed */
-    height: auto;
-    margin-bottom: 20px;
-    position: relative;
-    right: -200;
-    }
-
-    form input[type="text"],
-    form input[type="password"] {
-      width: 100%;
-      padding: 12px 15px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    form button {
-      width: 100%;
-      padding: 12px;
-      background-color: #be02f8;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    form button:hover {
-      background-color: #8203a8;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #666;
-    }
-
-    .messages li.error {
-      color: red;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-
-  </style>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-<body>
+<body class="login-page">
   <div class="login-box">
-    <img src="{% static 'darklong.png' %}" style="transform: translate(70px, 0px);">
+    <img src="{% static 'darklong.png' %}">
     <h2>Welcome to Reach</h2>
     <h3>The Asset Management Platform</h3>
         {% if messages %}
