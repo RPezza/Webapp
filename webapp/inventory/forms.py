@@ -1,7 +1,7 @@
 from django import forms
 from django.utils import timezone
-from django.core.exceptions import ValidationError
-from .models import Booking, Asset
+from .models import Asset, Booking, UserMessage
+
 
 class BookingForm(forms.ModelForm):
     class Meta:
@@ -28,7 +28,6 @@ class BookingForm(forms.ModelForm):
             raise forms.ValidationError("Start date cannot be in the past.")
 
         if asset and start and end:
-            # Block if any booking overlaps, including exact match on start or end
             overlapping = Booking.objects.filter(
                 asset=asset,
                 start_date__lte=end,
@@ -36,23 +35,21 @@ class BookingForm(forms.ModelForm):
             )
             if self.instance.pk:
                 overlapping = overlapping.exclude(pk=self.instance.pk)
-
             if overlapping.exists():
+                first = overlapping.first()
                 raise forms.ValidationError(
-                    f"{asset.name} is already booked between {overlapping.first().start_date} and {overlapping.first().end_date}."
+                    f"{asset.name} is already booked between {first.start_date} and {first.end_date}."
                 )
 
         return cleaned_data
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    subject = forms.CharField(max_length=150)
-    message = forms.CharField(widget=forms.Textarea)
-
-class BookingForm(forms.ModelForm):
+class ContactForm(forms.ModelForm):
     class Meta:
-        model = Booking
-        fields = ('asset', 'start_date', 'end_date') 
-        
+        model = UserMessage
+        fields = ['name', 'email', 'subject', 'message']
+
+class AssetForm(forms.ModelForm):
+    class Meta:
+        model = Asset
+        fields = ['name', 'description', 'category', 'available']
