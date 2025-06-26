@@ -4,137 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Register | Asset Tracker</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
-            background-attachment: fixed;
-            background-size: cover;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        main {
-            flex: 1;
-            padding: 40px 20px;
-        }
-
-
-        header {
-            color: white;
-            padding: 17px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header img {
-            height: 30px;
-            position: relative;
-            right: -1270px;
-        }
-
-        nav {
-            display: inline-block;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            position: relative;
-            right: 625px;
-        }
-
-        nav a {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: inline-block;
-            font-weight: normal;
-            text-align: center;
-            flex-grow: 1;
-            margin: 0 5px;
-            padding: 10px;
-            max-width: 100px;
-            text-decoration: none;
-            color: inherit;
-            background-color: #5a7681;
-            border-radius: 5px;
-        }
-
-        nav a:hover {
-            background-color: #3e5a63;
-            color: #ffffff;
-            text-decoration: underline;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        main {
-            flex: 1;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            font-size: 50px;
-            font-weight: bold;
-            margin-top: 5px;
-            margin-bottom: 20px;
-        }
-
-
-        form {
-            width: 100%;
-            max-width: 600px; /* wider form container */
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        form input,
-        form textarea {
-            width: 100%;         /* fill the form width */
-            padding: 12px;       /* comfortable padding */
-            font-size: 12px;     /* readable text size */
-            margin: 5px 0;
-            border: none;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        
-        form button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        form button {
-            background-color: #5a7681;
-            color: white;
-            cursor: pointer;
-        }
-
-        form button:hover {
-            background-color: #3e5a63;
-        }
-
-        footer {
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -155,7 +26,7 @@
             {{ form.as_p }}
             <button type="submit">Create Account</button>
         </form>
-        <p>Already have an account? <a href="{% url 'login' %}" style="color: lightblue;">Login here</a></p>
+        <p>Already have an account? <a href="{% url 'login' %}" class="login-link">Login here</a></p>
     </main>
 
     <footer>
