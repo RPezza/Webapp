@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Asset Tracker</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -97,7 +98,12 @@
     </script>
     
 
-
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+        });
+    </script>
     
     
 

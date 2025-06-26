@@ -4,6 +4,7 @@
 <head>
     <title>Book Equipment</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -21,9 +22,6 @@
               
         
         </nav>
-    </header>
-
-    <main>
     </header>
 
     <main>
@@ -52,7 +50,12 @@
         &copy; {{ now|date:"Y" }} Asset Booking App
     </footer>
 
-
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+        });
+    </script>
     
 </body>
 </html>
