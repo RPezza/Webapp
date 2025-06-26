@@ -26,6 +26,7 @@
     <main>
     <h1>Asset Inventory</h1>
     <h2>This is a list of all available equipment as well as when they are next available.</h2>
+
     {% if messages %}
       <ul class="messages">
         {% for message in messages %}
@@ -34,6 +35,13 @@
       </ul>
     {% endif %}
 
+    <div class="grid">
+        {% for asset in assets %}
+        <div class="card">
+    <main>
+    <h1>Asset Inventory</h1>
+    <h2>This is a list of all available equipment as well as when they are next available.</h2>
+    
     <div class="grid">
         {% for asset in assets %}
         <div class="card">
