@@ -101,6 +101,13 @@ def book_asset(request):
 
 @login_required
 def booking_list(request):
+    if request.user.is_staff:
+        bookings = Booking.objects.all()
+    else:
+        bookings = Booking.objects.filter(user=request.user)
+
+    show_user = request.user.is_staff
+
     bookings = Booking.objects.all()
     show_user = request.user.is_staff
     return render(
@@ -123,6 +130,9 @@ def register(request):
 
 def edit_booking(request, pk):
     booking = get_object_or_404(Booking, id=pk)
+
+    if not request.user.is_staff and booking.user != request.user:
+
     if booking.user != request.user:
         messages.error(request, "You are not allowed to edit this booking.")
         return redirect("booking_list")
@@ -455,6 +465,7 @@ def booking_list(request):
 def edit_booking(request, pk):
     booking = get_object_or_404(Booking, id=pk)
     if booking.user != request.user and not request.user.is_staff:
+
         messages.error(request, "You are not allowed to edit this booking.")
         return redirect("booking_list")
     if request.method == "POST":
@@ -466,6 +477,7 @@ def edit_booking(request, pk):
     else:
         form = BookingForm(instance=booking)
     return render(request, "inventory/edit_booking.html", {"form": form})
+
 
 
 @login_required
@@ -525,3 +537,4 @@ def asset_delete(request, pk):
         messages.success(request, "Asset deleted successfully.")
         return redirect("asset_list")
     return render(request, "inventory/asset_confirm_delete.html", {"asset": asset})
+

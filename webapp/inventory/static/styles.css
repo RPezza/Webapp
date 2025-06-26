@@ -39,7 +39,9 @@ nav {
     gap: 10px;
     align-items: center;
 }
+
 nav form { margin: 0; }
+
 
 nav a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,6 +105,19 @@ footer {
 }
 
 .book-btn:hover {
+    background-color: #3e5a63;
+}
+
+.edit-btn {
+    background-color: #5a7681;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn:hover {
     background-color: #3e5a63;
 }
 
