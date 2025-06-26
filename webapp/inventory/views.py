@@ -192,4 +192,4 @@ from django.shortcuts import redirect
 def logout(request):
     logout(request)
     messages.success(request, "You have been logged out successfully.")
-    return redirect('inventory/login')  
+    return redirect('inventory/login')
