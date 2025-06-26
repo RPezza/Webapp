@@ -30,7 +30,7 @@ class UserMessage(models.Model):
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
     email = models.EmailField()
-    name = models.CharField()
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.user.username} - {self.subject}"
