@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Booking List</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -67,7 +68,12 @@
         &copy; {{ year }} Reach Asset Tracker
     </footer>
 
-
+    <script>
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            event.returnValue = '';
+        });
+    </script>
     
 </body>
 </html>
