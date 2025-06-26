@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Asset Tracker</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <header>
@@ -24,6 +23,13 @@
         
         </nav>
     </header>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
     <main>
         <h1>Welcome to Reach</h1>
         <h2> Welcome to Reach, the assets booking and mangement platform. To book equipment/assets, please select 'book' to begin.</h2>
@@ -91,12 +97,7 @@
     </script>
     
 
-    <script>
-        window.addEventListener('beforeunload', (event) => {
-            event.preventDefault();
-            event.returnValue = '';
-        });
-    </script>
+
     
     
 

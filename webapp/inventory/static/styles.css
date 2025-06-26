@@ -333,6 +333,7 @@ th { background-color: #2b414a; }
     margin: 0 auto 20px;
 }
 .messages li.error { color: red; font-weight: bold; margin-bottom: 10px; }
+.messages li.success { color: lightgreen; font-weight: bold; margin-bottom: 10px; }
 .footer { text-align: center; margin-top: 15px; font-size: 0.9em; color: #666; }
 
 /* Utility classes */
