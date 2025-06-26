@@ -1,0 +1,1191 @@
+/* asset_list styles */
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        main {
+            flex: 1;
+            padding-bottom: 20px;
+        }
+
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background-color: transparent;
+        }
+
+
+
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        header img {
+            height: 30px;
+            position: relative; 
+            right: -1270px; 
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; 
+            align-items: center; 
+            width: 100%; 
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; 
+            color: #ffffff; 
+            text-decoration: underline; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 5px;   
+            margin-bottom: 5px; 
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       
+            margin-bottom: 20px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: #223b4a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #ffffff;
+        }
+
+        .card p {
+            margin: 5px 0;
+            color: #d0d0d0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .available {
+            background-color: #28a745;
+        }
+
+        .unavailable {
+            background-color: #dc3545;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 1px;   
+            margin-bottom: 1px; 
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       
+            margin-bottom: 20px; 
+        }
+        h3 {
+            font-size: 14px;
+            font-weight: lighter;
+            margin-top: 0;       
+            margin-bottom: 20px; 
+        }
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+
+/* book_asset styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            padding: 40px;
+        }
+
+        form {
+            background-color: #395059;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form p {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #8ba7b1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6e8f99;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 1px;   /* reduce space above */
+            margin-bottom: 1px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+
+/* booking_list styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 1px;   /* reduce space above */
+            margin-bottom: 1px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #2b414a;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .book-btn {
+            background-color: #5a7681;
+            color: #ffffff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background-color: #3e5a63;
+        }
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+
+/* contact styles */
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            text-align: center;
+            font-size: large;
+            margin-top: 0;
+            padding-top: 0;
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 1px;   /* reduce space above */
+            margin-bottom: 1px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px; /* wider form container */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;         /* fill the form width */
+            padding: 12px;       /* comfortable padding */
+            font-size: 12px;     /* readable text size */
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            font-size: 14px;
+            padding: 8px 16px;
+            background-color: #5a7681;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #3e5a63;
+        }
+
+
+        form button {
+            padding: 10px 20px;
+            background-color: #5a7681;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #3e5a63;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+        
+
+/* edit_booking styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 625px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 5px;   /* reduce space above */
+            margin-bottom: 5px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+
+        main {
+            text-align: center;
+            font-size: large;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+/* home styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 30px;
+            position: relative; /* Change this to absolute, fixed, or sticky as needed */
+            right: -1270px; /* Adjust the position */
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between; /* Spread items to take up more space */
+            align-items: center; /* Center items vertically */
+            width: 100%; /* Make nav take full width of the screen */
+            position: relative;
+            right: 590px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63; /* Darker shade for hover */
+            color: #ffffff; /* Optional: change text color on hover */
+            text-decoration: underline; /* Optional: add underline on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 5px;   /* reduce space above */
+            margin-bottom: 5px; /* reduce space below */
+        }
+
+        h2 {
+            font-size: 15px;
+            font-weight: normal;
+            margin-top: 0;       /* reduce space above */
+            margin-bottom: 20px; /* optional: adjust space before form */
+        }
+
+        main {
+            text-align: center;
+            font-size: large;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .book-btn {
+            background-color: #bedae5;
+            color: #192d38;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: #6e8f99;
+        }
+
+        .scroll-item {
+            flex: 0 0 auto;
+            width: 200px;
+            scroll-snap-align: start;
+            background-color: rgb(235, 235, 235);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            color: black;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            font-weight: bolder;
+            font-size: large;
+        }
+
+
+        .scroll-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .gallery-wrapper {
+            position: relative;
+            width: 700px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 50px; /* space for buttons inside */
+        }
+
+        .scroll-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 40px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: whitesmoke;
+            color: black;
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            border-radius: 50%;
+
+            /* Center the arrow */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* Adjust size */
+            width: 40px;
+            height: 40px;
+
+            /* Adjust font */
+            font-size: 20px;
+            line-height: 1;
+            padding: 0; /* Remove padding to avoid shifting */
+        }
+
+
+        .scroll-btn.left {
+            left: 0px;
+        }
+
+        .scroll-btn.right {
+            right: 0px;
+        }
+
+        .scroll-btn:hover {
+            background-color: rgba(34, 59, 74, 1);
+        }
+
+        .logout-button {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #be02f8;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            }
+
+
+        .logout-button:hover {
+        background-color: #8203a8;
+        }
+
+
+
+
+
+
+/* login styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .login-box h3 {
+      text-align: center;
+      color: #333;
+      font-size:medium;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 300;
+      margin-top: 5px; /* Adjust this value to reduce spacing */
+    }
+    
+    .login-box img {
+    
+    width: 250px; /* Adjust the width as needed */
+    height: auto;
+    margin-bottom: 20px;
+    position: relative;
+    right: -200;
+    }
+
+    form input[type="text"],
+    form input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #be02f8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    form button:hover {
+      background-color: #8203a8;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .messages li.error {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+
+
+/* register styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(180deg, #192d38, #bedae5, #be02f8);
+            background-attachment: fixed;
+            background-size: cover;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 20px;
+        }
+
+
+        header {
+            color: white;
+            padding: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 30px;
+            position: relative;
+            right: -1270px;
+        }
+
+        nav {
+            display: inline-block;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            right: 625px;
+        }
+
+        nav a {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            font-weight: normal;
+            text-align: center;
+            flex-grow: 1;
+            margin: 0 5px;
+            padding: 10px;
+            max-width: 100px;
+            text-decoration: none;
+            color: inherit;
+            background-color: #5a7681;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #3e5a63;
+            color: #ffffff;
+            text-decoration: underline;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        main {
+            flex: 1;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+
+        form {
+            width: 100%;
+            max-width: 600px; /* wider form container */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;         /* fill the form width */
+            padding: 12px;       /* comfortable padding */
+            font-size: 12px;     /* readable text size */
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        form button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        form button {
+            background-color: #5a7681;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #3e5a63;
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+/* admin base_site styles */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', Arial, sans-serif;
+        background: linear-gradient(180deg, #192d38, #bedae5);
+        color: #ffffff;
+    }
+
+    #header {
+        background-color: transparent;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #header h1 {
+        font-size: 40px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .module h2, .module caption, .inline-group h2 {
+        color: #ffffff;
+    }
+
+    .module {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .button, input[type="submit"], input[type="button"], .submit-row input {
+        background-color: #5a7681;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .button:hover, input[type="submit"]:hover, input[type="button"]:hover {
+        background-color: #3e5a63;
+    }
+
+    .breadcrumbs {
+        background: none;
+        color: white;
+    }
+
+    .breadcrumbs a {
+        color: #ffffff;
+        text-decoration: underline;
+    }
