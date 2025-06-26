@@ -185,6 +185,16 @@ from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 from django.contrib import messages
 
+from django.contrib.auth import logout
+from django.contrib import messages
+from django.shortcuts import redirect
+
+
+def logout(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect('inventory/login')
+=======
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -378,4 +388,3 @@ def asset_delete(request, pk):
         messages.success(request, "Asset deleted successfully.")
         return redirect("asset_list")
     return render(request, "inventory/asset_confirm_delete.html", {"asset": asset})
-
