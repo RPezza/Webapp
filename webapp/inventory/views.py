@@ -14,17 +14,27 @@ from .models import Asset, Booking, UserMessage
 
 def _annotate_next_available(assets):
     for asset in assets:
-        latest_booking = (
-            Booking.objects.filter(asset=asset, end_date__gte=date.today())
-            .order_by("end_date")
-            .last()
-        )
-        asset.next_available = (
-            latest_booking.end_date + timedelta(days=1)
-            if latest_booking
-            else date.today()
-        )
+        # Check if today is currently booked
+        is_today_booked = Booking.objects.filter(
+            asset=asset,
+            start_date__lte=date.today(),
+            end_date__gte=date.today()
+        ).exists()
+
+        if is_today_booked:
+            # Find the last booking starting from today onward
+            latest_booking = (
+                Booking.objects.filter(asset=asset, end_date__gte=date.today())
+                .order_by("end_date")
+                .last()
+            )
+            asset.next_available = latest_booking.end_date + timedelta(days=1)
+            asset.available = False  # today is booked, so mark red/unavailable
+        else:
+            asset.next_available = date.today()
+            asset.available = True  # today is free, so mark green/available
     return assets
+
 
 
 def login_view(request):
@@ -86,15 +96,15 @@ def book_asset(request):
 
 @login_required
 def booking_list(request):
-    if request.user.is_staff:
-        bookings = Booking.objects.all()
-    else:
-        bookings = Booking.objects.filter(user=request.user)
-    show_user = request.user.is_staff
+    bookings = Booking.objects.all()
     return render(
         request,
         "inventory/booking_list.html",
-        {"bookings": bookings, "show_user": show_user},
+        {
+            "bookings": bookings,
+            "show_user": True,  # Always show user column (optional)
+            "request_user": request.user,  # Needed to check ownership in the template
+        },
     )
 
 
@@ -110,6 +120,7 @@ def edit_booking(request, pk):
             form.save()
             messages.success(request, "Booking updated successfully.")
             return redirect("booking_list")
+
     else:
         form = BookingForm(instance=booking)
     return render(request, "inventory/edit_booking.html", {"form": form})

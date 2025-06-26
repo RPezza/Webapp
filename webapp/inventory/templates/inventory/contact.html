@@ -38,6 +38,34 @@
             {{ form.as_p }}
             <button type="submit">Send Message</button>
         </form>
+    </header>
+    <main>
+        <h1>Contact the Admins</h1>
+        <h2>For any issues or queries please leave a message here and an administrator will respond to assist you.</h2>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <main>
+        <h1>Contact the Admins</h1>
+        <h2>For any issues or queries please leave a message here and an administrator will respond to assist you.</h2>
+    
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Send Message</button>
+        </form>
     </main>
     
     <footer>

@@ -24,6 +24,21 @@
     </header>
 
     <main>
+    </header>
+
+    <main>
+
+    </header>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <main>
         <h1>Book Available Equipment</h1>
         <h2>Here you can book equipment for use. You will be unable to book equipment that has already been booked for selected dates.</h2>
         <form method="post">
