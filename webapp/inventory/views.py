@@ -12,6 +12,21 @@ from .forms import AssetForm, BookingForm, ContactForm
 from .models import Asset, Booking, UserMessage
 
 
+def _annotate_next_available(assets):
+    for asset in assets:
+        latest_booking = (
+            Booking.objects.filter(asset=asset, end_date__gte=date.today())
+            .order_by("end_date")
+            .last()
+        )
+        asset.next_available = (
+            latest_booking.end_date + timedelta(days=1)
+            if latest_booking
+            else date.today()
+        )
+    return assets
+
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -44,35 +59,13 @@ def register(request):
 
 
 def home(request):
-    assets = Asset.objects.all()
-    for asset in assets:
-        latest_booking = (
-            Booking.objects.filter(asset=asset, end_date__gte=date.today())
-            .order_by("end_date")
-            .last()
-        )
-        asset.next_available = (
-            latest_booking.end_date + timedelta(days=1)
-            if latest_booking
-            else date.today()
-        )
+    assets = _annotate_next_available(Asset.objects.all())
     return render(request, "inventory/home.html", {"assets": assets})
 
 
 @login_required
 def asset_list(request):
-    assets = Asset.objects.all()
-    for asset in assets:
-        latest_booking = (
-            Booking.objects.filter(asset=asset, end_date__gte=date.today())
-            .order_by("end_date")
-            .last()
-        )
-        asset.next_available = (
-            latest_booking.end_date + timedelta(days=1)
-            if latest_booking
-            else date.today()
-        )
+    assets = _annotate_next_available(Asset.objects.all())
     return render(request, "inventory/asset_list.html", {"assets": assets})
 
 
@@ -132,7 +125,11 @@ def contact(request):
             message.save()
             send_mail(
                 f"Contact Form: {message.subject}",
-                f"Name: {message.name}\nEmail: {message.email}\nMessage: {message.message}",
+                (
+                    f"Name: {message.name}\n"
+                    f"Email: {message.email}\n"
+                    f"Message: {message.message}"
+                ),
                 message.email,
                 [admin[1] for admin in settings.ADMINS],
                 fail_silently=False,
