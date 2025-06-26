@@ -126,33 +126,6 @@ footer {
 .logout-button:hover {
     background-color: #8203a8;
 }
-
-/* Utility classes */
-.inline-form {
-    display: inline;
-}
-
-.asset-img {
-    width: 160px;
-    max-height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.success-message {
-    color: lightgreen;
-    font-weight: bold;
-}
-
-.login-logo {
-    transform: translate(70px, 0px);
-}
-
-.login-link {
-    color: lightblue;
-}
-
 /* Home page gallery */
 .scroll-item {
     flex: 0 0 auto;
