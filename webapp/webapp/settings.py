@@ -55,8 +55,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webapp.urls'
+ROOT_URLCONF = 'webapp.urls'
 
 WSGI_APPLICATION = 'webapp.wsgi.application'
+
+ROOT_URLCONF = 'webapp.urls'
+WSGI_APPLICATION = "webapp.wsgi.application"
+
 
 
 # Database
@@ -135,6 +140,12 @@ EMAIL_HOST = 'smtp.gmail.com'  # or your provider's SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'rowanperry05@gmail.com'
+EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Redirect unauthenticated users to the custom login page
+LOGIN_URL = '/login/'
+
 EMAIL_HOST_PASSWORD = 'akhm wnwa wcvu qydz'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 

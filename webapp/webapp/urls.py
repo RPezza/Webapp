@@ -5,5 +5,10 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('login')),
+
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', include('inventory.urls')),
 ]
