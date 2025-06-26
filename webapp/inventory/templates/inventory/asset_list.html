@@ -5,7 +5,7 @@
     <title>Asset List</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-<body>
+<body class="asset-list-page">
     <header>
         <img src="{% static 'white.png' %}">
         <nav>
@@ -14,7 +14,7 @@
             <a href="{% url 'booking_list' %}">Booking List</a>
             <a href="{% url 'contact' %}">Contact</a>
             <a href="{% url 'book_asset' %}">Book Asset</a>
-            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Logout</button>
               </form>
@@ -30,8 +30,7 @@
         {% for asset in assets %}
         <div class="card">
             <img src="{% static 'equipment/' %}{{ asset.name|slugify }}.jpg"
-                 alt="{{ asset.name }}"
-                 style="width: 160px; max-height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                 alt="{{ asset.name }}" class="asset-image">
             <h2>{{ asset.name }}</h2>
             <h3>{{ asset.description }}</h3>
             <p><strong>Next Available:</strong> {{ asset.next_available|date:"j M Y" }}</p>

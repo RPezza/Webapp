@@ -6,7 +6,7 @@
     <title>Register | Asset Tracker</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
-<body>
+<body class="register-page">
     <header>
         <img src="{% static 'white.png' %}" alt="Logo">
         <nav>
@@ -25,7 +25,7 @@
             {{ form.as_p }}
             <button type="submit">Create Account</button>
         </form>
-        <p>Already have an account? <a href="{% url 'login' %}" style="color: lightblue;">Login here</a></p>
+        <p>Already have an account? <a href="{% url 'login' %}" class="login-link">Login here</a></p>
     </main>
 
     <footer>
